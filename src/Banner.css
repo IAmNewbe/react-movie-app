@@ -2,7 +2,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header {
+header.Header{
     color: white;
     /* position: absolute; */
     top: 0;
@@ -16,6 +16,10 @@ header {
 }
 header.logo img{
     max-width: 150px;
+}
+img.logo {
+    width: 80px;
+    padding: 8px;
 }
 .navigation{
     display: flex;

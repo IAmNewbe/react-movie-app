@@ -1,6 +1,18 @@
+.container {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  text-align: center;
+}
+
 .App {
   text-align: center;
   margin-top: 50px;
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 40px;
+  justify-content: center;
 }
 
 .App-header {
@@ -37,6 +49,7 @@
 
 .card_title {
   font-weight: bold;
+  z-index: 10;
 }
 
 .card_content {
@@ -54,7 +67,7 @@
 }
 
 .card_content::before {
-  content: '';
+  z-index: 0;
   position: absolute;
   top: -47px;
   right: -45px;

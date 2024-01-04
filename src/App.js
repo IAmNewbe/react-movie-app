@@ -1,25 +1,44 @@
 
 import './App.css';
+import { getMovieList } from "./Api"
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
+  const baseUrl = process.env.REACT_APP_BASEIMGURL
+  const [popularMovies, setPopularMovies] = useState([]);
+
+  useEffect(() => {
+    getMovieList().then((result) => {
+      setPopularMovies(result)
+    })
+  }, [])
+  
+  console.log(popularMovies);
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Movie</h1>
-        <article class="card">
-          <div class="temporary_text">
-              Place image here
-          </div>
-          <div class="card_content">
-              <span class="card_title">This is a Title</span>
-                  <span class="card_subtitle">
-                    <div className='Movie-date'>date : 12-03-2020</div>
-                    <div className='Movie-rate'>rate : 9.8</div>
-                   </span>
-                  <p class="card_description">Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur? Labore minus soluta consequatur placeat.</p>
-          </div>
-        </article>
-      </header>
+    <div className='container'>
+      {popularMovies.map((movie, index) => {
+        return (
+          <div className="App" key={index}>
+            <header className="App-header">
+            <h1>Movie</h1>
+            <article class="card">
+              <div class="temporary_text">
+                  <img src={`${baseUrl}/${movie.poster_path}`}/>
+              </div>
+              <div class="card_content">
+                  <span class="card_title">{movie.title}</span>
+                      <span class="card_subtitle">
+                        <div className='Movie-date'>Date : {movie.release_date}</div>
+                        <div className='Movie-rate'>rate : {movie.vote_average}</div>
+                      </span>
+                      <p class="card_description">{movie.overview}</p>
+              </div>
+            </article>
+          </header>
+        </div>
+        )
+      })}
     </div>
   );
 }

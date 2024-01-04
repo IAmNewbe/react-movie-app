@@ -15,11 +15,6 @@ backdrop-filter: blur(12.6px);
     z-index: 15;
 }
 
-.logo {
-    max-width: 150px;
-    padding: 8px;
-}
-
 /* ul.menu {
     float: right;
     display: inline-flex;
@@ -108,6 +103,11 @@ nav ul li a,
     -moz-animation: fill 1s forwards;
     opacity: 1;
   }
+
+  nav img.logo {
+    width: 50px;
+    padding: 8px;
+}
 
   /* Keyframes */
   @keyframes fill {

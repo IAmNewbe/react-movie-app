@@ -3,7 +3,7 @@ import './Banner.css';
 function Banner() {
     return (
         <div className='Landinganner'>
-        <header>
+        <header className='Header'>
             <img className='logo' alt='' src={require('./red.png')}/>
             <ul className='navigation'>
              <li><a href='#Home'>Home</a></li>
